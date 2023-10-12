@@ -8,14 +8,15 @@ import java.util.List;
 @Data
 public class BookResponseDto {
     private Long id;
+    private String name;
     private List<AuthorResponseDto> authors;
     private String isbn;
-    private List<String> genres;
+    private List<GenreResponseDto> genres;
     private Integer publicationYear;
     private String description;
     private BigDecimal price;
-    private String availability;
+    private AvailabilityResponseDto availability;
     private String coverImageLink;
-    private String language;
-    private List<String> formats;
+    private LanguageResponseDto language;
+    private List<FormatResponseDto> formats;
 }
