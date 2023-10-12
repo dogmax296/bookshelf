@@ -1,6 +1,8 @@
 package com.dogmax.bookshelf.model;
 
 
+import jakarta.persistence.Entity;
+
 import java.util.Objects;
 import java.util.stream.Stream;
 
