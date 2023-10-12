@@ -15,5 +15,5 @@ public class Availability {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private BigDecimal availability;
+    private String availability;
 }
