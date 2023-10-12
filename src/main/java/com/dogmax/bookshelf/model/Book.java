@@ -42,5 +42,5 @@ public class Book {
     @JoinTable(name = "formats_books",
             joinColumns = @JoinColumn(name = "format_id"),
             inverseJoinColumns = @JoinColumn(name = "book_id"))
-    private Set<Format> format;
+    private Set<Format> formats;
 }
