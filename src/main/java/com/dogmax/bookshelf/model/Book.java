@@ -1,7 +1,5 @@
 package com.dogmax.bookshelf.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -11,7 +9,8 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import lombok.Data;
 
 import java.math.BigDecimal;
@@ -39,11 +38,10 @@ public class Book {
     private Integer publicationYear;
     private String description;
     private BigDecimal price;
-
-    @Enumerated(EnumType.STRING)
+    @ManyToOne
     private Availability availability;
     private String coverImageLink;
-    @Enumerated(EnumType.STRING)
+    @ManyToOne
     private Language language;
     @ManyToMany
     @JoinTable(name = "formats_books",
