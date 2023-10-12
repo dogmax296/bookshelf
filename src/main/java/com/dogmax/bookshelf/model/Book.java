@@ -1,6 +1,10 @@
 package com.dogmax.bookshelf.model;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -35,8 +39,11 @@ public class Book {
     private Integer publicationYear;
     private String description;
     private BigDecimal price;
+
+    @Enumerated(EnumType.STRING)
     private Availability availability;
     private String coverImageLink;
+    @Enumerated(EnumType.STRING)
     private Language language;
     @ManyToMany
     @JoinTable(name = "formats_books",
