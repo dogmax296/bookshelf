@@ -4,7 +4,9 @@ import com.dogmax.bookshelf.dto.GenreRequestDto;
 import com.dogmax.bookshelf.dto.GenreResponseDto;
 import com.dogmax.bookshelf.model.Genre;
 import com.dogmax.bookshelf.service.mapper.DtoMapper;
+import org.springframework.stereotype.Service;
 
+@Service
 public class GenreDtoMapper implements DtoMapper<Genre, GenreRequestDto, GenreResponseDto> {
     @Override
     public Genre mapToModel(GenreRequestDto genreRequestDto) {

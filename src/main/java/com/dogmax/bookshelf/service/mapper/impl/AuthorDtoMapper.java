@@ -4,7 +4,9 @@ import com.dogmax.bookshelf.dto.AuthorRequestDto;
 import com.dogmax.bookshelf.dto.AuthorResponseDto;
 import com.dogmax.bookshelf.model.Author;
 import com.dogmax.bookshelf.service.mapper.DtoMapper;
+import org.springframework.stereotype.Service;
 
+@Service
 public class AuthorDtoMapper implements DtoMapper<Author, AuthorRequestDto, AuthorResponseDto> {
     @Override
     public Author mapToModel(AuthorRequestDto authorRequestDto) {

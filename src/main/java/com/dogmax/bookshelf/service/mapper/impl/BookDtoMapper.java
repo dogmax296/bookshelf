@@ -19,9 +19,10 @@ import com.dogmax.bookshelf.model.Format;
 import com.dogmax.bookshelf.model.Genre;
 import com.dogmax.bookshelf.model.Language;
 import com.dogmax.bookshelf.service.mapper.DtoMapper;
+import org.springframework.stereotype.Service;
 
 import java.util.stream.Collectors;
-
+@Service
 public class BookDtoMapper implements DtoMapper<Book, BookRequestDto, BookResponseDto> {
 
     private final DtoMapper<Author, AuthorRequestDto, AuthorResponseDto> authorDtoMapper;
@@ -107,19 +108,6 @@ public class BookDtoMapper implements DtoMapper<Book, BookRequestDto, BookRespon
                         .collect(Collectors.toList())
 
         );
-
-
-
-
-
-
-
-
-
-
-
-
-
         return bookResponseDto;
     }
 }

@@ -4,7 +4,9 @@ import com.dogmax.bookshelf.dto.LanguageRequestDto;
 import com.dogmax.bookshelf.dto.LanguageResponseDto;
 import com.dogmax.bookshelf.model.Language;
 import com.dogmax.bookshelf.service.mapper.DtoMapper;
+import org.springframework.stereotype.Service;
 
+@Service
 public class LanguageDtoMapper implements DtoMapper<Language, LanguageRequestDto, LanguageResponseDto> {
     @Override
     public Language mapToModel(LanguageRequestDto languageRequestDto) {

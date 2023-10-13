@@ -4,7 +4,9 @@ import com.dogmax.bookshelf.dto.AvailabilityRequestDto;
 import com.dogmax.bookshelf.dto.AvailabilityResponseDto;
 import com.dogmax.bookshelf.model.Availability;
 import com.dogmax.bookshelf.service.mapper.DtoMapper;
+import org.springframework.stereotype.Service;
 
+@Service
 public class AvailabilityDtoMapper implements DtoMapper<Availability, AvailabilityRequestDto, AvailabilityResponseDto> {
     @Override
     public Availability mapToModel(AvailabilityRequestDto availabilityRequestDto) {

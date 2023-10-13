@@ -4,7 +4,9 @@ import com.dogmax.bookshelf.dto.FormatRequestDto;
 import com.dogmax.bookshelf.dto.FormatResponseDto;
 import com.dogmax.bookshelf.model.Format;
 import com.dogmax.bookshelf.service.mapper.DtoMapper;
+import org.springframework.stereotype.Service;
 
+@Service
 public class FormatDtoMapper implements DtoMapper<Format, FormatRequestDto, FormatResponseDto> {
 
     @Override
