@@ -23,7 +23,7 @@ public class FormatServiceImpl implements FormatService {
     }
 
     @Override
-    public List<Format> findAll(Map<String, String> params) {
+    public List<Format> findAll() {
         return formatRepository.findAll();
     }
 

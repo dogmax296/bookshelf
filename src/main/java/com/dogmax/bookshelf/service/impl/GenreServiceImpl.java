@@ -22,7 +22,7 @@ public class GenreServiceImpl implements GenreService {
     }
 
     @Override
-    public List<Genre> findAll(Map<String, String> params) {
+    public List<Genre> findAll() {
         return genreRepository.findAll();
     }
 

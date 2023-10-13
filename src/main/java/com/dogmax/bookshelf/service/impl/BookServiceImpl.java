@@ -23,7 +23,7 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
-    public List<Book> findAll(Map<String, String> params) {
+    public List<Book> findAll() {
         return bookRepository.findAll();
     }
 

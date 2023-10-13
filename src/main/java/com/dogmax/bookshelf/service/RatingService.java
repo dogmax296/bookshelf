@@ -9,7 +9,7 @@ import java.util.Map;
 public interface RatingService {
     Rating create(Rating rating);
 
-    List<Rating> findAll(Map<String, String> params);
+    List<Rating> findAll();
 
     Rating getById(Long id);
 

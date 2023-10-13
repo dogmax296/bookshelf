@@ -23,7 +23,7 @@ public class RatingServiceImpl implements RatingService {
     }
 
     @Override
-    public List<Rating> findAll(Map<String, String> params) {
+    public List<Rating> findAll() {
         return ratingRepository.findAll();
     }
 

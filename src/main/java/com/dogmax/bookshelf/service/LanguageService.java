@@ -8,7 +8,7 @@ import java.util.Map;
 public interface LanguageService {
     Language create(Language language);
 
-    List<Language> findAll(Map<String, String> params);
+    List<Language> findAll();
 
     Language getById(Long id);
 

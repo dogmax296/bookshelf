@@ -8,7 +8,7 @@ import java.util.Map;
 public interface BookService {
     Book create(Book book);
 
-    List<Book> findAll(Map<String, String> params);
+    List<Book> findAll();
 
     Book getById(Long id);
 

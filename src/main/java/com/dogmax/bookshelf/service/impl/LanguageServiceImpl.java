@@ -23,7 +23,7 @@ public class LanguageServiceImpl implements LanguageService {
     }
 
     @Override
-    public List<Language> findAll(Map<String, String> params) {
+    public List<Language> findAll() {
         return languageRepository.findAll();
     }
 

@@ -22,7 +22,7 @@ public class AuthorServiceImpl implements AuthorService {
     }
 
     @Override
-    public List<Author> findAll(Map<String, String> params) {
+    public List<Author> findAll() {
         return authorRepository.findAll();
     }
 

@@ -8,7 +8,7 @@ import java.util.Map;
 public interface AuthorService {
     Author create(Author author);
 
-    List<Author> findAll(Map<String, String> params);
+    List<Author> findAll();
 
     Author getById(Long id);
 

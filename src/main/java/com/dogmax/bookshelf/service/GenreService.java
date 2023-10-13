@@ -8,7 +8,7 @@ import java.util.Map;
 public interface GenreService {
     Genre create(Genre genre);
 
-    List<Genre> findAll(Map<String, String> params);
+    List<Genre> findAll();
 
     Genre getById(Long id);
 

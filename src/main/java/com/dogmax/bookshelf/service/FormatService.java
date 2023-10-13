@@ -8,7 +8,7 @@ import java.util.Map;
 public interface FormatService {
     Format create(Format format);
 
-    List<Format> findAll(Map<String, String> params);
+    List<Format> findAll();
 
     Format getById(Long id);
 
