@@ -5,6 +5,7 @@ import com.dogmax.bookshelf.repository.BookRepository;
 import com.dogmax.bookshelf.service.BookService;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Map;
 

@@ -38,8 +38,7 @@ public class Book {
     private Integer publicationYear;
     private String description;
     private BigDecimal price;
-    @ManyToOne
-    private Availability availability;
+    private BigDecimal quantity;
     private String coverImageLink;
     @ManyToOne
     private Language language;

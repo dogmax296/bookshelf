@@ -15,7 +15,7 @@ public class BookRequestDto {
     private Integer publicationYear;
     private String description;
     private BigDecimal price;
-    private AvailabilityRequestDto availability;
+    private BigDecimal quantity;
     private String coverImageLink;
     private LanguageRequestDto language;
     private List<FormatRequestDto> formats;

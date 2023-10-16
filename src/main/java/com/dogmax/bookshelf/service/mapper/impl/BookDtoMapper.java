@@ -2,8 +2,6 @@ package com.dogmax.bookshelf.service.mapper.impl;
 
 import com.dogmax.bookshelf.dto.AuthorRequestDto;
 import com.dogmax.bookshelf.dto.AuthorResponseDto;
-import com.dogmax.bookshelf.dto.AvailabilityRequestDto;
-import com.dogmax.bookshelf.dto.AvailabilityResponseDto;
 import com.dogmax.bookshelf.dto.BookRequestDto;
 import com.dogmax.bookshelf.dto.BookResponseDto;
 import com.dogmax.bookshelf.dto.FormatRequestDto;
@@ -13,7 +11,6 @@ import com.dogmax.bookshelf.dto.GenreResponseDto;
 import com.dogmax.bookshelf.dto.LanguageRequestDto;
 import com.dogmax.bookshelf.dto.LanguageResponseDto;
 import com.dogmax.bookshelf.model.Author;
-import com.dogmax.bookshelf.model.Availability;
 import com.dogmax.bookshelf.model.Book;
 import com.dogmax.bookshelf.model.Format;
 import com.dogmax.bookshelf.model.Genre;
@@ -27,18 +24,15 @@ public class BookDtoMapper implements DtoMapper<Book, BookRequestDto, BookRespon
 
     private final DtoMapper<Author, AuthorRequestDto, AuthorResponseDto> authorDtoMapper;
     private final DtoMapper<Genre, GenreRequestDto, GenreResponseDto> genreDtoMapper;
-    private final DtoMapper<Availability, AvailabilityRequestDto, AvailabilityResponseDto> availabilityDtoMapper;
     private final DtoMapper<Language, LanguageRequestDto, LanguageResponseDto> languageDtoMapper;
     private final DtoMapper<Format, FormatRequestDto, FormatResponseDto> formatDtoMapper;
 
     public BookDtoMapper(DtoMapper<Author, AuthorRequestDto,AuthorResponseDto> authorDtoMapper,
                          DtoMapper<Genre, GenreRequestDto, GenreResponseDto> genreDtoMapper,
-                         DtoMapper<Availability, AvailabilityRequestDto, AvailabilityResponseDto> availabilityDtoMapper,
                          DtoMapper<Language, LanguageRequestDto, LanguageResponseDto> languageDtoMapper,
                          DtoMapper<Format, FormatRequestDto, FormatResponseDto> formatDtoMapper) {
         this.authorDtoMapper = authorDtoMapper;
         this.genreDtoMapper = genreDtoMapper;
-        this.availabilityDtoMapper = availabilityDtoMapper;
         this.languageDtoMapper = languageDtoMapper;
         this.formatDtoMapper = formatDtoMapper;
     }
@@ -63,7 +57,7 @@ public class BookDtoMapper implements DtoMapper<Book, BookRequestDto, BookRespon
         book.setPublicationYear(bookRequestDto.getPublicationYear());
         book.setDescription(bookRequestDto.getDescription());
         book.setPrice(bookRequestDto.getPrice());
-        book.setAvailability(availabilityDtoMapper.mapToModel(bookRequestDto.getAvailability()));
+        book.setQuantity(bookRequestDto.getQuantity());
         book.setCoverImageLink(bookRequestDto.getCoverImageLink());
         book.setLanguage(languageDtoMapper.mapToModel(bookRequestDto.getLanguage()));
         book.setFormats(
@@ -98,7 +92,7 @@ public class BookDtoMapper implements DtoMapper<Book, BookRequestDto, BookRespon
         bookResponseDto.setPublicationYear(book.getPublicationYear());
         bookResponseDto.setDescription(book.getDescription());
         bookResponseDto.setPrice(book.getPrice());
-        bookResponseDto.setAvailability(availabilityDtoMapper.mapToDto(book.getAvailability()));
+        bookResponseDto.setQuantity(book.getQuantity());
         bookResponseDto.setCoverImageLink(book.getCoverImageLink());
         bookResponseDto.setLanguage(languageDtoMapper.mapToDto(book.getLanguage()));
         bookResponseDto.setFormats(
