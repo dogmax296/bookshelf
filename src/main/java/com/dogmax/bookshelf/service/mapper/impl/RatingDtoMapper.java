@@ -2,24 +2,27 @@ package com.dogmax.bookshelf.service.mapper.impl;
 
 import com.dogmax.bookshelf.dto.LanguageRequestDto;
 import com.dogmax.bookshelf.dto.LanguageResponseDto;
+import com.dogmax.bookshelf.dto.RatingRequestDto;
+import com.dogmax.bookshelf.dto.RatingResponseDto;
 import com.dogmax.bookshelf.model.Language;
+import com.dogmax.bookshelf.model.Rating;
 import com.dogmax.bookshelf.service.mapper.DtoMapper;
 import org.springframework.stereotype.Service;
 
 @Service
-public class RatingDtoMapper implements DtoMapper<Language, LanguageRequestDto, LanguageResponseDto> {
+public class RatingDtoMapper implements DtoMapper<Rating, RatingRequestDto, RatingResponseDto> {
     @Override
-    public Language mapToModel(LanguageRequestDto languageRequestDto) {
-        Language language = new Language();
-        language.setLanguage(languageRequestDto.getLanguage());
-        return language;
+    public Rating mapToModel(RatingRequestDto ratingRequestDto) {
+        Rating rating = new Rating();
+        rating.setMark(ratingRequestDto.getMark());
+        return rating;
     }
 
     @Override
-    public LanguageResponseDto mapToDto(Language language) {
-        LanguageResponseDto languageResponseDto = new LanguageResponseDto();
-        languageResponseDto.setId(language.getId());
-        languageResponseDto.setLanguage(languageResponseDto.getLanguage());
-        return languageResponseDto;
+    public RatingResponseDto mapToDto(Rating rating) {
+        RatingResponseDto ratingResponseDto = new RatingResponseDto();
+        ratingResponseDto.setId(rating.getId());
+        ratingResponseDto.setMark(ratingResponseDto.getMark());
+        return ratingResponseDto;
     }
 }
