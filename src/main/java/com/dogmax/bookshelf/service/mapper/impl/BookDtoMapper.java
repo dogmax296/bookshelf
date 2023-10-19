@@ -19,6 +19,7 @@ import com.dogmax.bookshelf.service.mapper.DtoMapper;
 import org.springframework.stereotype.Service;
 
 import java.util.stream.Collectors;
+
 @Service
 public class BookDtoMapper implements DtoMapper<Book, BookRequestDto, BookResponseDto> {
 
@@ -27,7 +28,7 @@ public class BookDtoMapper implements DtoMapper<Book, BookRequestDto, BookRespon
     private final DtoMapper<Language, LanguageRequestDto, LanguageResponseDto> languageDtoMapper;
     private final DtoMapper<Format, FormatRequestDto, FormatResponseDto> formatDtoMapper;
 
-    public BookDtoMapper(DtoMapper<Author, AuthorRequestDto,AuthorResponseDto> authorDtoMapper,
+    public BookDtoMapper(DtoMapper<Author, AuthorRequestDto, AuthorResponseDto> authorDtoMapper,
                          DtoMapper<Genre, GenreRequestDto, GenreResponseDto> genreDtoMapper,
                          DtoMapper<Language, LanguageRequestDto, LanguageResponseDto> languageDtoMapper,
                          DtoMapper<Format, FormatRequestDto, FormatResponseDto> formatDtoMapper) {

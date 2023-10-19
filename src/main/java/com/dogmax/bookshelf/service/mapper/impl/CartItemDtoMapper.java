@@ -2,9 +2,6 @@ package com.dogmax.bookshelf.service.mapper.impl;
 
 import com.dogmax.bookshelf.dto.CartItemRequestDto;
 import com.dogmax.bookshelf.dto.CartItemResponseDto;
-import com.dogmax.bookshelf.dto.CartRequestDto;
-import com.dogmax.bookshelf.dto.CartResponseDto;
-import com.dogmax.bookshelf.model.Cart;
 import com.dogmax.bookshelf.model.CartItem;
 import com.dogmax.bookshelf.repository.BookRepository;
 import com.dogmax.bookshelf.service.mapper.DtoMapper;

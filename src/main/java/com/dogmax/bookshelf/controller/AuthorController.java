@@ -31,12 +31,12 @@ public class AuthorController {
     }
 
     @PostMapping("/add")
-    public AuthorResponseDto add(@RequestBody AuthorRequestDto authorRequestDto){
+    public AuthorResponseDto add(@RequestBody AuthorRequestDto authorRequestDto) {
         return mapper.mapToDto(service.getById(service.create(mapper.mapToModel(authorRequestDto)).getId()));
     }
 
     @GetMapping
-    public List<AuthorResponseDto> getAll(){
+    public List<AuthorResponseDto> getAll() {
         return service.findAll()
                 .stream()
                 .map(mapper::mapToDto)
@@ -44,24 +44,22 @@ public class AuthorController {
     }
 
     @GetMapping("/{id}")
-    public AuthorResponseDto getById(@PathVariable Long id){
+    public AuthorResponseDto getById(@PathVariable Long id) {
         return mapper.mapToDto(service.getById(id));
     }
 
     @DeleteMapping("/{id}")
-    public void delete(@PathVariable Long id){
+    public void delete(@PathVariable Long id) {
         service.delete(id);
     }
 
     @PutMapping("/{id}")
     public AuthorResponseDto update(@PathVariable Long id,
-                                    @RequestBody AuthorRequestDto authorRequestDto){
+                                    @RequestBody AuthorRequestDto authorRequestDto) {
         Author author = mapper.mapToModel(authorRequestDto);
         author.setId(id);
         return mapper.mapToDto(service.update(author));
     }
-
-
 
 
 }

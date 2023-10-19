@@ -1,10 +1,7 @@
 package com.dogmax.bookshelf.service.mapper.impl;
 
-import com.dogmax.bookshelf.dto.LanguageRequestDto;
-import com.dogmax.bookshelf.dto.LanguageResponseDto;
 import com.dogmax.bookshelf.dto.RatingRequestDto;
 import com.dogmax.bookshelf.dto.RatingResponseDto;
-import com.dogmax.bookshelf.model.Language;
 import com.dogmax.bookshelf.model.Rating;
 import com.dogmax.bookshelf.service.mapper.DtoMapper;
 import org.springframework.stereotype.Service;

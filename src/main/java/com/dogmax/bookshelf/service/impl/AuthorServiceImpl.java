@@ -6,7 +6,6 @@ import com.dogmax.bookshelf.service.AuthorService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Map;
 
 @Service
 public class AuthorServiceImpl implements AuthorService {

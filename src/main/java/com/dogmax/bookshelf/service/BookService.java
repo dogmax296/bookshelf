@@ -3,7 +3,6 @@ package com.dogmax.bookshelf.service;
 import com.dogmax.bookshelf.model.Book;
 
 import java.util.List;
-import java.util.Map;
 
 public interface BookService {
     Book create(Book book);

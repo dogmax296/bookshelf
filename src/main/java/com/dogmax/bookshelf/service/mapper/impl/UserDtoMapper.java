@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 import java.util.stream.Collectors;
 
 @Service
-public class UserDtoMapper  implements DtoMapper<User, UserRequestDto, UserResponseDto> {
+public class UserDtoMapper implements DtoMapper<User, UserRequestDto, UserResponseDto> {
 
     private final DtoMapper<Role, RoleRequestDto, RoleResponseDto> rolesMapper;
 

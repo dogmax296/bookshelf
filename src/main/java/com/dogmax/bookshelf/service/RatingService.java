@@ -1,10 +1,8 @@
 package com.dogmax.bookshelf.service;
 
-import com.dogmax.bookshelf.model.Language;
 import com.dogmax.bookshelf.model.Rating;
 
 import java.util.List;
-import java.util.Map;
 
 public interface RatingService {
     Rating create(Rating rating);

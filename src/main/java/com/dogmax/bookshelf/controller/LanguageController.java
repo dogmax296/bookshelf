@@ -55,7 +55,7 @@ public class LanguageController {
 
     @PutMapping("/{id}")
     public LanguageResponseDto update(@PathVariable Long id,
-                                    @RequestBody LanguageRequestDto languageRequestDto) {
+                                      @RequestBody LanguageRequestDto languageRequestDto) {
         Language language = mapper.mapToModel(languageRequestDto);
         language.setId(id);
         return mapper.mapToDto(service.update(language));

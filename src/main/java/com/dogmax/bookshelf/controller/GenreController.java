@@ -55,7 +55,7 @@ public class GenreController {
 
     @PutMapping("/{id}")
     public GenreResponseDto update(@PathVariable Long id,
-                                    @RequestBody GenreRequestDto genreRequestDto) {
+                                   @RequestBody GenreRequestDto genreRequestDto) {
         Genre genre = mapper.mapToModel(genreRequestDto);
         genre.setId(id);
         return mapper.mapToDto(service.update(genre));

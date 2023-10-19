@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 public class GenreDtoMapper implements DtoMapper<Genre, GenreRequestDto, GenreResponseDto> {
     @Override
     public Genre mapToModel(GenreRequestDto genreRequestDto) {
-        Genre genre =new Genre();
+        Genre genre = new Genre();
         genre.setGenre(genreRequestDto.getGenre());
         return genre;
     }

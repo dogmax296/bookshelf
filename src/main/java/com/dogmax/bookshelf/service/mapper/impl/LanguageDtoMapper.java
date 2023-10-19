@@ -17,7 +17,7 @@ public class LanguageDtoMapper implements DtoMapper<Language, LanguageRequestDto
 
     @Override
     public LanguageResponseDto mapToDto(Language language) {
-        LanguageResponseDto languageResponseDto =  new LanguageResponseDto();
+        LanguageResponseDto languageResponseDto = new LanguageResponseDto();
         languageResponseDto.setId(languageResponseDto.getId());
         languageResponseDto.setLanguage(languageResponseDto.getLanguage());
         return languageResponseDto;
