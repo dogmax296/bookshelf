@@ -15,6 +15,10 @@ import com.dogmax.bookshelf.model.Book;
 import com.dogmax.bookshelf.model.Format;
 import com.dogmax.bookshelf.model.Genre;
 import com.dogmax.bookshelf.model.Language;
+import com.dogmax.bookshelf.service.AuthorService;
+import com.dogmax.bookshelf.service.FormatService;
+import com.dogmax.bookshelf.service.GenreService;
+import com.dogmax.bookshelf.service.LanguageService;
 import com.dogmax.bookshelf.service.mapper.DtoMapper;
 import org.springframework.stereotype.Service;
 
@@ -27,15 +31,27 @@ public class BookDtoMapper implements DtoMapper<Book, BookRequestDto, BookRespon
     private final DtoMapper<Genre, GenreRequestDto, GenreResponseDto> genreDtoMapper;
     private final DtoMapper<Language, LanguageRequestDto, LanguageResponseDto> languageDtoMapper;
     private final DtoMapper<Format, FormatRequestDto, FormatResponseDto> formatDtoMapper;
+    private final AuthorService authorService;
+    private final GenreService genreService;
+    private final FormatService formatService;
+    private final LanguageService languageService;
 
     public BookDtoMapper(DtoMapper<Author, AuthorRequestDto, AuthorResponseDto> authorDtoMapper,
                          DtoMapper<Genre, GenreRequestDto, GenreResponseDto> genreDtoMapper,
                          DtoMapper<Language, LanguageRequestDto, LanguageResponseDto> languageDtoMapper,
-                         DtoMapper<Format, FormatRequestDto, FormatResponseDto> formatDtoMapper) {
+                         DtoMapper<Format, FormatRequestDto, FormatResponseDto> formatDtoMapper,
+                         AuthorService authorService,
+                         GenreService genreService,
+                         FormatService formatService,
+                         LanguageService languageService) {
         this.authorDtoMapper = authorDtoMapper;
         this.genreDtoMapper = genreDtoMapper;
         this.languageDtoMapper = languageDtoMapper;
         this.formatDtoMapper = formatDtoMapper;
+        this.authorService = authorService;
+        this.genreService = genreService;
+        this.formatService = formatService;
+        this.languageService = languageService;
     }
 
     @Override
@@ -43,16 +59,16 @@ public class BookDtoMapper implements DtoMapper<Book, BookRequestDto, BookRespon
         Book book = new Book();
         book.setName(bookRequestDto.getName());
         book.setAuthors(
-                bookRequestDto.getAuthors()
+                bookRequestDto.getAuthorsID()
                         .stream()
-                        .map(authorDtoMapper::mapToModel)
+                        .map(authorService::getById)
                         .collect(Collectors.toSet())
         );
         book.setIsbn(bookRequestDto.getIsbn());
         book.setGenres(
-                bookRequestDto.getGenres()
+                bookRequestDto.getGenresID()
                         .stream()
-                        .map(genreDtoMapper::mapToModel)
+                        .map(genreService::getById)
                         .collect(Collectors.toSet())
         );
         book.setPublicationYear(bookRequestDto.getPublicationYear());
@@ -60,11 +76,15 @@ public class BookDtoMapper implements DtoMapper<Book, BookRequestDto, BookRespon
         book.setPrice(bookRequestDto.getPrice());
         book.setQuantity(bookRequestDto.getQuantity());
         book.setCoverImageLink(bookRequestDto.getCoverImageLink());
-        book.setLanguage(languageDtoMapper.mapToModel(bookRequestDto.getLanguage()));
+        book.setLanguages(bookRequestDto.getLanguagesID()
+                .stream()
+                .map(languageService::getById)
+                .collect(Collectors.toSet())
+        );
         book.setFormats(
-                bookRequestDto.getFormats()
+                bookRequestDto.getFormatsID()
                         .stream()
-                        .map(formatDtoMapper::mapToModel)
+                        .map(formatService::getById)
                         .collect(Collectors.toSet())
 
         );
@@ -95,7 +115,11 @@ public class BookDtoMapper implements DtoMapper<Book, BookRequestDto, BookRespon
         bookResponseDto.setPrice(book.getPrice());
         bookResponseDto.setQuantity(book.getQuantity());
         bookResponseDto.setCoverImageLink(book.getCoverImageLink());
-        bookResponseDto.setLanguage(languageDtoMapper.mapToDto(book.getLanguage()));
+        bookResponseDto.setLanguage(book.getLanguages()
+                .stream()
+                .map(languageDtoMapper::mapToDto)
+                .collect(Collectors.toList())
+        );
         bookResponseDto.setFormats(
                 book.getFormats()
                         .stream()

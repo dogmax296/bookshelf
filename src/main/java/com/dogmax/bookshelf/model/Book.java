@@ -38,11 +38,11 @@ public class Book {
     private BigDecimal price;
     private BigDecimal quantity;
     private String coverImageLink;
-    @ManyToOne
+    @ManyToMany
     @JoinTable(name = "books_languages",
             joinColumns = @JoinColumn(name = "book_id"),
             inverseJoinColumns = @JoinColumn(name = "language_id"))
-    private Language language;
+    private Set<Language> languages;
     @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE})
     @JoinTable(name = "books_formats",
             joinColumns = @JoinColumn(name = "book_id"),

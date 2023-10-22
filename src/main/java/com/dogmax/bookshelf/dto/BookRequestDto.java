@@ -4,18 +4,19 @@ import lombok.Data;
 
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.Set;
 
 @Data
 public class BookRequestDto {
     private String name;
-    private List<AuthorRequestDto> authors;
+    private Set<Long> authorsID;
     private String isbn;
-    private List<GenreRequestDto> genres;
+    private Set<Long> genresID;
     private Integer publicationYear;
     private String description;
     private BigDecimal price;
     private BigDecimal quantity;
     private String coverImageLink;
-    private LanguageRequestDto language;
-    private List<FormatRequestDto> formats;
+    private Set<Long> languagesID;
+    private Set<Long> formatsID;
 }
