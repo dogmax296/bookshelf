@@ -18,7 +18,9 @@ public class RatingServiceImpl implements RatingService {
 
     @Override
     public Rating create(Rating rating) {
-        return ratingRepository.save(rating);
+        Rating r = ratingRepository.save(rating);
+        /// update book rating
+        return r;
     }
 
     @Override
@@ -26,18 +28,4 @@ public class RatingServiceImpl implements RatingService {
         return ratingRepository.findAll();
     }
 
-    @Override
-    public Rating getById(Long id) {
-        return ratingRepository.getReferenceById(id);
-    }
-
-    @Override
-    public void delete(Long id) {
-        ratingRepository.deleteById(id);
-    }
-
-    @Override
-    public Rating update(Rating rating) {
-        return ratingRepository.save(rating);
-    }
 }

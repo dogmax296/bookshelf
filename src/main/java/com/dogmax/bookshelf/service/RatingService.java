@@ -9,9 +9,4 @@ public interface RatingService {
 
     List<Rating> findAll();
 
-    Rating getById(Long id);
-
-    void delete(Long id);
-
-    Rating update(Rating rating);
 }
