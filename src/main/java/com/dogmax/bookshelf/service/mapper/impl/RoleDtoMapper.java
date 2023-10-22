@@ -19,7 +19,7 @@ public class RoleDtoMapper implements DtoMapper<Role, RoleRequestDto, RoleRespon
     public RoleResponseDto mapToDto(Role role) {
         RoleResponseDto roleResponseDto = new RoleResponseDto();
         roleResponseDto.setId(role.getId());
-        roleResponseDto.setRole(roleResponseDto.getRole());
+        roleResponseDto.setRole(role.getRole());
         return roleResponseDto;
     }
 }

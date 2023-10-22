@@ -1,6 +1,8 @@
 package com.dogmax.bookshelf.service.impl;
 
+import com.dogmax.bookshelf.model.Cart;
 import com.dogmax.bookshelf.model.User;
+import com.dogmax.bookshelf.model.Wishlist;
 import com.dogmax.bookshelf.repository.UserRepository;
 import com.dogmax.bookshelf.service.UserService;
 import org.springframework.stereotype.Service;
@@ -18,6 +20,8 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User create(User user) {
+        user.setCart(new Cart());
+        user.setWishlist(new Wishlist());
         user.setStatus("ACTIVE");
         return repository.save(user);
     }
@@ -35,9 +39,8 @@ public class UserServiceImpl implements UserService {
     @Override
     public void delete(Long id) {
         User user = repository.getReferenceById(id);
-        user.setStatus("DELETED");
+        user.setStatus("DISABLE");
         repository.save(user);
-
     }
 
     @Override

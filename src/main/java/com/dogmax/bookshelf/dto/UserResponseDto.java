@@ -8,7 +8,6 @@ import java.util.List;
 public class UserResponseDto {
     private Long id;
     private String login;
-    private String password;
     private List<RoleResponseDto> roles;
     private Long cartId;
     private Long wishlistId;
