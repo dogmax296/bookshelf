@@ -32,34 +32,7 @@ public class RatingController {
 
     @PostMapping("/add")
     public RatingResponseDto add(@RequestBody RatingRequestDto ratingRequestDto) {
-        return mapper.mapToDto(service.getById(service.create(mapper.mapToModel(ratingRequestDto)).getId()));
+        return mapper.mapToDto(service.create(mapper.mapToModel(ratingRequestDto)));
     }
-
-    @GetMapping
-    public List<RatingResponseDto> getAll() {
-        return service.findAll()
-                .stream()
-                .map(mapper::mapToDto)
-                .collect(Collectors.toList());
-    }
-
-    @GetMapping("/{id}")
-    public RatingResponseDto getById(@PathVariable Long id) {
-        return mapper.mapToDto(service.getById(id));
-    }
-
-    @DeleteMapping("/{id}")
-    public void delete(@PathVariable Long id) {
-        service.delete(id);
-    }
-
-    @PutMapping("/{id}")
-    public RatingResponseDto update(@PathVariable Long id,
-                                    @RequestBody RatingRequestDto ratingRequestDto) {
-        Rating rating = mapper.mapToModel(ratingRequestDto);
-        rating.setId(id);
-        return mapper.mapToDto(service.update(rating));
-    }
-
 
 }

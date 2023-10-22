@@ -23,9 +23,4 @@ public class RatingServiceImpl implements RatingService {
         return r;
     }
 
-    @Override
-    public List<Rating> findAll() {
-        return ratingRepository.findAll();
-    }
-
 }
