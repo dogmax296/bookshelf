@@ -11,7 +11,6 @@ import com.dogmax.bookshelf.service.RoleService;
 import com.dogmax.bookshelf.service.mapper.DtoMapper;
 import org.springframework.stereotype.Service;
 
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -53,8 +52,8 @@ public class UserDtoMapper implements DtoMapper<User, UserRequestDto, UserRespon
         );
         userResponseDto.setCartId(user.getCart().getId());
         userResponseDto.setWishlistId(user.getWishlist().getId());
-        List<Order> orders =user.getOrders();
-        if(orders != null) userResponseDto.setOrderIds(orders
+        List<Order> orders = user.getOrders();
+        if (orders != null) userResponseDto.setOrderIds(orders
                 .stream()
                 .map(Order::getId)
                 .collect(Collectors.toList())

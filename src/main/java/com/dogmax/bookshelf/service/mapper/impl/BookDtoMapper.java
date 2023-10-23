@@ -22,6 +22,7 @@ import com.dogmax.bookshelf.service.LanguageService;
 import com.dogmax.bookshelf.service.mapper.DtoMapper;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.util.stream.Collectors;
 
 @Service
@@ -88,7 +89,7 @@ public class BookDtoMapper implements DtoMapper<Book, BookRequestDto, BookRespon
                         .collect(Collectors.toSet())
 
         );
-
+        book.setRating(BigDecimal.valueOf(0));
         return book;
     }
 
