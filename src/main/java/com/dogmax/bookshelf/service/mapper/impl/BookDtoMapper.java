@@ -128,6 +128,7 @@ public class BookDtoMapper implements DtoMapper<Book, BookRequestDto, BookRespon
                         .collect(Collectors.toList())
 
         );
+        bookResponseDto.setRating(book.getRating());
         return bookResponseDto;
     }
 }

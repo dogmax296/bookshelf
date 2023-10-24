@@ -19,4 +19,5 @@ public class BookResponseDto {
     private String coverImageLink;
     private List<LanguageResponseDto> language;
     private List<FormatResponseDto> formats;
+    private BigDecimal rating;
 }
