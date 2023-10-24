@@ -7,6 +7,6 @@ import java.util.List;
 @Data
 public class OrderResponseDto {
     private Long id;
-    private List<CartItemResponseDto> cartItems;
+    private List<OrderItemResponseDto> orderItems;
     private String status;
 }

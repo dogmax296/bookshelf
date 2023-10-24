@@ -20,43 +20,44 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping("/orders")
 public class OrderController {
-    private final OrderService service;
-    private final DtoMapper<Order, OrderRequestDto, OrderResponseDto> mapper;
+    private final OrderService orderService;
+    private final DtoMapper<Order, OrderRequestDto, OrderResponseDto> orderDtoMapper;
 
-    public OrderController(OrderService orderService, DtoMapper<Order, OrderRequestDto, OrderResponseDto> mapper) {
-        this.service = orderService;
-        this.mapper = mapper;
+    public OrderController(OrderService orderService,
+                           DtoMapper<Order, OrderRequestDto, OrderResponseDto> orderDtoMapper) {
+        this.orderService = orderService;
+        this.orderDtoMapper = orderDtoMapper;
     }
 
     @PostMapping("/add")
     public OrderResponseDto add(@RequestBody OrderRequestDto orderRequestDto) {
-        return mapper.mapToDto(service.getById(service.create(mapper.mapToModel(orderRequestDto)).getId()));
+        return orderDtoMapper.mapToDto(orderService.getById(orderService.create(orderDtoMapper.mapToModel(orderRequestDto)).getId()));
     }
 
     @GetMapping
     public List<OrderResponseDto> getAll() {
-        return service.findAll()
+        return orderService.findAll()
                 .stream()
-                .map(mapper::mapToDto)
+                .map(orderDtoMapper::mapToDto)
                 .collect(Collectors.toList());
     }
 
     @GetMapping("/{id}")
     public OrderResponseDto getById(@PathVariable Long id) {
-        return mapper.mapToDto(service.getById(id));
+        return orderDtoMapper.mapToDto(orderService.getById(id));
     }
 
     @DeleteMapping("/{id}")
     public void delete(@PathVariable Long id) {
-        service.delete(id);
+        orderService.delete(id);
     }
 
     @PutMapping("/{id}")
     public OrderResponseDto update(@PathVariable Long id,
                                    @RequestBody OrderRequestDto orderRequestDto) {
-        Order order = mapper.mapToModel(orderRequestDto);
+        Order order = orderDtoMapper.mapToModel(orderRequestDto);
         order.setId(id);
-        return mapper.mapToDto(service.update(order));
+        return orderDtoMapper.mapToDto(orderService.update(order));
     }
 
 }

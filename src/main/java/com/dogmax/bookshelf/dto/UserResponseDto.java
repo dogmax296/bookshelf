@@ -9,8 +9,6 @@ public class UserResponseDto {
     private Long id;
     private String login;
     private List<RoleResponseDto> roles;
-    private Long cartId;
-    private Long wishlistId;
     private List<Long> orderIds;
     private String status;
 }

@@ -5,7 +5,9 @@ import lombok.Data;
 import java.math.BigDecimal;
 
 @Data
-public class CartItemRequestDto {
-    private Long bookId;
+public class OrderItemResponseDto {
+    private Long id;
+    private Long bookID;
     private BigDecimal quantity;
+    private BigDecimal sum;
 }

@@ -37,6 +37,7 @@ public class UserDtoMapper implements DtoMapper<User, UserRequestDto, UserRespon
                 .toList();
         if (roles.isEmpty()) roles = List.of(roleService.getById(1L));
         user.setRoles(roles);
+        user.setStatus("ACTIVE");
         return user;
     }
 
@@ -50,8 +51,6 @@ public class UserDtoMapper implements DtoMapper<User, UserRequestDto, UserRespon
                 .map(rolesMapper::mapToDto)
                 .collect(Collectors.toList())
         );
-        userResponseDto.setCartId(user.getCart().getId());
-        userResponseDto.setWishlistId(user.getWishlist().getId());
         List<Order> orders = user.getOrders();
         if (orders != null) userResponseDto.setOrderIds(orders
                 .stream()

@@ -13,11 +13,13 @@ import java.math.BigDecimal;
 @Entity
 @Getter
 @Setter
-public class CartItem {
+public class OrderItem {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @OneToOne
     private Book book;
     private BigDecimal quantity;
+    private BigDecimal sum;
+
 }

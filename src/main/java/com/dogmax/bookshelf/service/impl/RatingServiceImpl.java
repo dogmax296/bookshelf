@@ -5,8 +5,6 @@ import com.dogmax.bookshelf.repository.RatingRepository;
 import com.dogmax.bookshelf.service.RatingService;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-
 @Service
 public class RatingServiceImpl implements RatingService {
 
