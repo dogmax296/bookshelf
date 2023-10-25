@@ -17,7 +17,7 @@ public class BookResponseDto {
     private BigDecimal price;
     private BigDecimal quantity;
     private String coverImageLink;
-    private List<LanguageResponseDto> language;
+    private List<LanguageResponseDto> languages;
     private List<FormatResponseDto> formats;
     private BigDecimal rating;
 }

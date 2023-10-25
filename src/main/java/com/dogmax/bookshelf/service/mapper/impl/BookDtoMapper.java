@@ -116,7 +116,7 @@ public class BookDtoMapper implements DtoMapper<Book, BookRequestDto, BookRespon
         bookResponseDto.setPrice(book.getPrice());
         bookResponseDto.setQuantity(book.getQuantity());
         bookResponseDto.setCoverImageLink(book.getCoverImageLink());
-        bookResponseDto.setLanguage(book.getLanguages()
+        bookResponseDto.setLanguages(book.getLanguages()
                 .stream()
                 .map(languageDtoMapper::mapToDto)
                 .collect(Collectors.toList())

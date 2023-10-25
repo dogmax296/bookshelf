@@ -6,6 +6,6 @@ import java.math.BigDecimal;
 
 @Data
 public class RatingRequestDto {
-    private Long bookId;
+    private Long bookID;
     private BigDecimal mark;
 }
