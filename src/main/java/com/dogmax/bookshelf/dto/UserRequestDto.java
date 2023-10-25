@@ -8,5 +8,5 @@ import java.util.List;
 public class UserRequestDto {
     private String login;
     private String password;
-    private List<Long> rolesID;
+    private List<Long> rolesIDS;
 }

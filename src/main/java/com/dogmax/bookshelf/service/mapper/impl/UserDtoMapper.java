@@ -31,7 +31,7 @@ public class UserDtoMapper implements DtoMapper<User, UserRequestDto, UserRespon
         User user = new User();
         user.setLogin(userRequestDto.getLogin());
         user.setPassword(userRequestDto.getPassword());
-        List<Role> roles = userRequestDto.getRolesID()
+        List<Role> roles = userRequestDto.getRolesIDS()
                 .stream()
                 .map(roleService::getById)
                 .toList();
@@ -52,7 +52,7 @@ public class UserDtoMapper implements DtoMapper<User, UserRequestDto, UserRespon
                 .collect(Collectors.toList())
         );
         List<Order> orders = user.getOrders();
-        if (orders != null) userResponseDto.setOrderIds(orders
+        if (orders != null) userResponseDto.setOrderIDS(orders
                 .stream()
                 .map(Order::getId)
                 .collect(Collectors.toList())

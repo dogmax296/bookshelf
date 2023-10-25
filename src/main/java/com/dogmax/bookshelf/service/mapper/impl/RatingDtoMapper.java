@@ -18,7 +18,7 @@ public class RatingDtoMapper implements DtoMapper<Rating, RatingRequestDto, Rati
     @Override
     public Rating mapToModel(RatingRequestDto ratingRequestDto) {
         Rating rating = new Rating();
-        rating.setBook(bookService.getById(ratingRequestDto.getBookId()));
+        rating.setBook(bookService.getById(ratingRequestDto.getBookID()));
         rating.setMark(ratingRequestDto.getMark());
         return rating;
     }
@@ -27,7 +27,7 @@ public class RatingDtoMapper implements DtoMapper<Rating, RatingRequestDto, Rati
     public RatingResponseDto mapToDto(Rating rating) {
         RatingResponseDto ratingResponseDto = new RatingResponseDto();
         ratingResponseDto.setId(rating.getId());
-        ratingResponseDto.setBookId(rating.getBook().getId());
+        ratingResponseDto.setBookID(rating.getBook().getId());
         ratingResponseDto.setMark(rating.getMark());
         return ratingResponseDto;
     }

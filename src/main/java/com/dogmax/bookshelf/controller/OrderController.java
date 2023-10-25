@@ -2,6 +2,7 @@ package com.dogmax.bookshelf.controller;
 
 import com.dogmax.bookshelf.dto.OrderRequestDto;
 import com.dogmax.bookshelf.dto.OrderResponseDto;
+import com.dogmax.bookshelf.dto.OrderStatusUpdateRequestDto;
 import com.dogmax.bookshelf.model.Order;
 import com.dogmax.bookshelf.service.OrderService;
 import com.dogmax.bookshelf.service.mapper.DtoMapper;
@@ -57,6 +58,14 @@ public class OrderController {
                                    @RequestBody OrderRequestDto orderRequestDto) {
         Order order = orderDtoMapper.mapToModel(orderRequestDto);
         order.setId(id);
+        return orderDtoMapper.mapToDto(orderService.update(order));
+    }
+
+    @PutMapping("/{id}")
+    public OrderResponseDto updateStatus(@PathVariable Long id,
+                                   @RequestBody OrderStatusUpdateRequestDto orderStatusUpdateRequestDto) {
+        Order order = orderService.getById(id);
+        order.setStatus(orderStatusUpdateRequestDto.getStatus());
         return orderDtoMapper.mapToDto(orderService.update(order));
     }
 

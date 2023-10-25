@@ -7,7 +7,7 @@ import java.math.BigDecimal;
 @Data
 public class RatingResponseDto {
     private Long id;
-    private Long bookId;
+    private Long bookID;
     private BigDecimal mark;
 
 }
