@@ -22,6 +22,7 @@ com/dogmax/bookshelf/service/handler/PaginationAndSortingHandler.class
 com/dogmax/bookshelf/controller/GenreController.class
 com/dogmax/bookshelf/repository/UserRepository.class
 com/dogmax/bookshelf/service/mapper/impl/OrderItemDtoMapper.class
+com/dogmax/bookshelf/dto/OrderStatusUpdateRequestDto.class
 com/dogmax/bookshelf/model/Rating.class
 com/dogmax/bookshelf/service/mapper/impl/AuthorDtoMapper.class
 com/dogmax/bookshelf/service/mapper/impl/GenreDtoMapper.class
@@ -48,6 +49,7 @@ com/dogmax/bookshelf/service/RoleService.class
 com/dogmax/bookshelf/dto/LanguageRequestDto.class
 com/dogmax/bookshelf/model/Format.class
 com/dogmax/bookshelf/dto/OrderItemResponseDto.class
+com/dogmax/bookshelf/BookshelfApplication$1.class
 com/dogmax/bookshelf/model/Author.class
 com/dogmax/bookshelf/service/impl/OrderItemServiceImpl.class
 com/dogmax/bookshelf/service/impl/AuthorServiceImpl.class

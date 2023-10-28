@@ -61,7 +61,7 @@ public class OrderController {
         return orderDtoMapper.mapToDto(orderService.update(order));
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/statusUpdate/{id}")
     public OrderResponseDto updateStatus(@PathVariable Long id,
                                    @RequestBody OrderStatusUpdateRequestDto orderStatusUpdateRequestDto) {
         Order order = orderService.getById(id);

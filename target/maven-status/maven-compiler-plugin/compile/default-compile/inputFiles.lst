@@ -82,5 +82,6 @@
 /Users/Maxim/Documents/Java_Development/KHNURE/bookshelf/src/main/java/com/dogmax/bookshelf/dto/FormatRequestDto.java
 /Users/Maxim/Documents/Java_Development/KHNURE/bookshelf/src/main/java/com/dogmax/bookshelf/dto/RatingResponseDto.java
 /Users/Maxim/Documents/Java_Development/KHNURE/bookshelf/src/main/java/com/dogmax/bookshelf/dto/RoleRequestDto.java
+/Users/Maxim/Documents/Java_Development/KHNURE/bookshelf/src/main/java/com/dogmax/bookshelf/dto/OrderStatusUpdateRequestDto.java
 /Users/Maxim/Documents/Java_Development/KHNURE/bookshelf/src/main/java/com/dogmax/bookshelf/repository/AuthorRepository.java
 /Users/Maxim/Documents/Java_Development/KHNURE/bookshelf/src/main/java/com/dogmax/bookshelf/controller/OrderController.java
