@@ -18,12 +18,9 @@ public class BookshelfApplication {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**")
-//                        .allowedOrigins("http://localhost:8080")
-                        .allowedOriginPatterns("http://localhost:[*]")
-//                        .allowedMethods("GET", "POST", "PUT", "DELETE")
-                        .allowedMethods("*")
-                        .allowedHeaders("*")
-                        .allowCredentials(true);
+                        .allowedOrigins("*")
+                        .allowedMethods("GET", "POST", "PUT", "DELETE")
+                        .allowedHeaders("*");
             }
         };
     }
