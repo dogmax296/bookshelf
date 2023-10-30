@@ -19,7 +19,7 @@ public class BookshelfApplication {
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**")
 //                        .allowedOrigins("http://localhost:8080")
-                        .allowedOrigins("*")
+                        .allowedOriginPatterns("http://localhost:[*]")
 //                        .allowedMethods("GET", "POST", "PUT", "DELETE")
                         .allowedMethods("*")
                         .allowedHeaders("*")
