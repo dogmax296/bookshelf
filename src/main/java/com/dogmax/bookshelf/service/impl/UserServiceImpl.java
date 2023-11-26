@@ -71,6 +71,10 @@ public class UserServiceImpl implements UserService {
             result = Optional.of(user);
         } else {
             result = userRepository.findUserByLogin(email);
+            if(result.isPresent() && result.get().getStatus().equals("DISABLED")){
+                result = Optional.empty();
+            }
+
         }
         return result;
     }
