@@ -32,7 +32,7 @@ public class AuthenticationController {
                 .login(userLoginDto.getLogin(), userLoginDto.getPassword());
         String token = jwtTokenProvider
                 .createToken(user.getLogin(), user.getRoles().stream().map(Role::getRole).collect(Collectors.toList()));
-        return new ResponseEntity<>(Map.of("token", token), HttpStatus.OK);
+        return new ResponseEntity<>(Map.of("token", token,"user_id", user.getId(),"roles",user.getRoles()), HttpStatus.OK);
     }
 
 }
