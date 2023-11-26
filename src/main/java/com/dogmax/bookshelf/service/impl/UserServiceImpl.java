@@ -5,6 +5,7 @@ import com.dogmax.bookshelf.repository.RoleRepository;
 import com.dogmax.bookshelf.repository.UserRepository;
 import com.dogmax.bookshelf.service.UserService;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -16,6 +17,7 @@ public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
     private final RoleRepository roleRepository;
+    private final PasswordEncoder passwordEncoder;
 
     @Value("${admin.login}")
     private String login;
@@ -25,13 +27,16 @@ public class UserServiceImpl implements UserService {
     private List<String> roles;
 
     public UserServiceImpl(UserRepository repository,
-                           RoleRepository roleRepository) {
+                           RoleRepository roleRepository,
+                           PasswordEncoder passwordEncoder) {
         this.userRepository = repository;
         this.roleRepository = roleRepository;
+        this.passwordEncoder = passwordEncoder;
     }
 
     @Override
     public User create(User user) {
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
         return userRepository.save(user);
     }
 
