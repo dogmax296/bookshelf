@@ -17,7 +17,7 @@ public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
     private final RoleRepository roleRepository;
-    private final PasswordEncoder passwordEncoder;
+
 
     @Value("${admin.login}")
     private String login;
@@ -27,16 +27,13 @@ public class UserServiceImpl implements UserService {
     private List<String> roles;
 
     public UserServiceImpl(UserRepository repository,
-                           RoleRepository roleRepository,
-                           PasswordEncoder passwordEncoder) {
+                           RoleRepository roleRepository) {
         this.userRepository = repository;
         this.roleRepository = roleRepository;
-        this.passwordEncoder = passwordEncoder;
     }
 
     @Override
     public User create(User user) {
-        user.setPassword(passwordEncoder.encode(user.getPassword()));
         return userRepository.save(user);
     }
 

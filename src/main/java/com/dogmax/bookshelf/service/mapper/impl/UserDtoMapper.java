@@ -9,6 +9,7 @@ import com.dogmax.bookshelf.model.Role;
 import com.dogmax.bookshelf.model.User;
 import com.dogmax.bookshelf.service.RoleService;
 import com.dogmax.bookshelf.service.mapper.DtoMapper;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.Collections;
@@ -20,22 +21,23 @@ public class UserDtoMapper implements DtoMapper<User, UserRequestDto, UserRespon
 
     private final DtoMapper<Role, RoleRequestDto, RoleResponseDto> rolesMapper;
     private final RoleService roleService;
-
-    public UserDtoMapper(DtoMapper<Role, RoleRequestDto, RoleResponseDto> rolesMapper, RoleService roleService) {
+    private final PasswordEncoder encoder;
+    public UserDtoMapper(DtoMapper<Role, RoleRequestDto, RoleResponseDto> rolesMapper, RoleService roleService, PasswordEncoder encoder) {
         this.rolesMapper = rolesMapper;
         this.roleService = roleService;
+        this.encoder = encoder;
     }
 
     @Override
     public User mapToModel(UserRequestDto userRequestDto) {
         User user = new User();
-        user.setLogin(userRequestDto.getLogin());
+        user.setLogin(encoder.encode(userRequestDto.getLogin()));
         user.setPassword(userRequestDto.getPassword());
         List<Role> roles = userRequestDto.getRolesIDS()
                 .stream()
                 .map(roleService::getById)
                 .toList();
-        if (roles.isEmpty()) roles = List.of(roleService.getById(1L));
+        if (roles.isEmpty()) roles = List.of(roleService.getById(2L));
         user.setRoles(roles);
         user.setStatus("ACTIVE");
         return user;
