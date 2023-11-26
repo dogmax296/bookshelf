@@ -31,8 +31,8 @@ public class UserDtoMapper implements DtoMapper<User, UserRequestDto, UserRespon
     @Override
     public User mapToModel(UserRequestDto userRequestDto) {
         User user = new User();
-        user.setLogin(encoder.encode(userRequestDto.getLogin()));
-        user.setPassword(userRequestDto.getPassword());
+        user.setLogin(userRequestDto.getLogin());
+        user.setPassword(encoder.encode(userRequestDto.getPassword()));
         List<Role> roles = userRequestDto.getRolesIDS()
                 .stream()
                 .map(roleService::getById)
