@@ -1,6 +1,7 @@
 package com.dogmax.bookshelf.model;
 
 import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -9,6 +10,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
+import jakarta.validation.constraints.Size;
 import lombok.Data;
 
 import java.math.BigDecimal;
@@ -35,9 +37,11 @@ public class Book {
             inverseJoinColumns = @JoinColumn(name = "genre_id"))
     private Set<Genre> genres;
     private Integer publicationYear;
+    @Column(length = 10000)
     private String description;
     private BigDecimal price;
     private BigDecimal quantity;
+    @Column(length = 10000)
     private String coverImageLink;
     @ManyToMany
     @JoinTable(name = "books_languages",
